@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: 'postgres:alpine'
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  hasura:
+    image: hasura/graphql-engine:v2.12.0.cli-migrations-v3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    restart: always
+    env_file:
+      - .env.hasura.development
+    volumes:
+      - ./hasura/metadata:/hasura-metadata
+    extra_hosts: # to reach out to localhost:4000
+      - host.docker.internal:host-gateway
+
+volumes:
+  postgres:
