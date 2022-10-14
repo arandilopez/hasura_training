@@ -1,8 +1,8 @@
+import { UsersService } from '@app/users/users.service';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { User } from '@prisma/client';
 import { compareSync } from 'bcrypt';
-import { UsersService } from '../users/users.service';
 import { JwtPayload } from './dto/jwt-payload';
 
 @Injectable()

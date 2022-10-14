@@ -1,3 +1,5 @@
+import { Post } from '@app/posts/dto/post.type';
+import { PrismaService } from '@app/prisma/prisma.service';
 import {
   Args,
   ID,
@@ -7,8 +9,6 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { Post } from '../posts/dto/post.type';
-import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { User } from './dto/user.type';
 

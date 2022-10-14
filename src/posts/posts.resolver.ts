@@ -7,10 +7,10 @@ import {
   ResolveField,
   Resolver,
 } from '@nestjs/graphql';
-import { User } from '../users/dto/user.type';
-import { PrismaService } from '../prisma/prisma.service';
 import { Post } from './dto/post.type';
 import { CreatePostInput } from './dto/create-post.input';
+import { PrismaService } from '@app/prisma/prisma.service';
+import { User } from '@app/users/dto/user.type';
 
 @Resolver(() => Post)
 export class PostsResolver {
