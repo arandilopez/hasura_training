@@ -1,11 +1,18 @@
-import { createUser } from '@factories/users';
+// import { createUser } from './factories/users';
 import { PrismaClient } from '@prisma/client';
+import { hashSync } from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function seed() {
   if ((await prisma.user.count()) > 0) {
-    await createUser({ name: 'Arandi Lopez' });
+    await prisma.user.create({
+      data: {
+        name: 'Arandi Lopez',
+        email: 'arandi@test.com',
+        password: hashSync('test1234', 10),
+      },
+    });
   }
 }
 

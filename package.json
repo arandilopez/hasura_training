@@ -72,6 +72,6 @@
     "typescript": "^4.7.4"
   },
   "prisma": {
-    "seed": "ts-node --transpile-only prisma/seed.ts"
+    "seed": "ts-node --transpileOnly prisma/seed.ts"
   }
 }
