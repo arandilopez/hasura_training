@@ -1,0 +1,6 @@
+- name: Node API
+  definition:
+    url_from_env: EXTERNAL_GRAPHQL_APP
+    timeout_seconds: 60
+    customization: {}
+    forward_client_headers: true
