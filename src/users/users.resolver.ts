@@ -17,7 +17,7 @@ export class UsersResolver {
   constructor(private readonly prisma: PrismaService) {}
 
   @Query(() => User)
-  async user(@Args('id', { type: () => ID }) id: string): Promise<User> {
+  async user(@Args('id', { type: () => ID }) id: string): Promise<User | null> {
     return this.prisma.user.findUnique({ where: { id } });
   }
 
