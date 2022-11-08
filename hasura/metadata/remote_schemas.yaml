@@ -4,3 +4,28 @@
     timeout_seconds: 60
     customization: {}
     forward_client_headers: true
+  remote_relationships:
+    - relationships:
+        - definition:
+            to_source:
+              field_mapping:
+                id: id
+              relationship_type: object
+              source: Training
+              table:
+                name: users
+                schema: public
+          name: hUser
+      type_name: User
+    - relationships:
+        - definition:
+            to_source:
+              field_mapping:
+                id: id
+              relationship_type: object
+              source: Training
+              table:
+                name: posts
+                schema: public
+          name: hPost
+      type_name: Post
